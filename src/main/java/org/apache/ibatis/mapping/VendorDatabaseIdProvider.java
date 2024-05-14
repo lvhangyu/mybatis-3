@@ -24,6 +24,8 @@ import javax.sql.DataSource;
 import org.apache.ibatis.builder.BuilderException;
 
 /**
+ *  库操作
+ *
  * Vendor DatabaseId provider.
  * <p>
  * It returns database product name as a databaseId. If the user provides a properties it uses it to translate database

@@ -40,6 +40,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ *  默认sql会话
+ *
  * The default implementation for {@link SqlSession}. Note that this class is not Thread-Safe.
  *
  * @author Clinton Begin
@@ -47,6 +49,7 @@ import org.apache.ibatis.session.SqlSession;
 public class DefaultSqlSession implements SqlSession {
 
   private final Configuration configuration;
+  //执行者
   private final Executor executor;
 
   private final boolean autoCommit;

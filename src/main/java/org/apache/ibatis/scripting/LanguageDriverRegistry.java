@@ -21,6 +21,8 @@ import java.util.Map;
 import org.apache.ibatis.util.MapUtil;
 
 /**
+ *  语言驱动注册器
+ *
  * @author Frank D. Martinez [mnesarco]
  */
 public class LanguageDriverRegistry {

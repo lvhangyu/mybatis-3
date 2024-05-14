@@ -98,20 +98,27 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ *  配置
+ *
  * @author Clinton Begin
  */
 public class Configuration {
 
+  //环境
   protected Environment environment;
 
+  //安全 行边界 开启
   protected boolean safeRowBoundsEnabled;
   protected boolean safeResultHandlerEnabled = true;
   protected boolean mapUnderscoreToCamelCase;
   protected boolean aggressiveLazyLoading;
   protected boolean multipleResultSetsEnabled = true;
   protected boolean useGeneratedKeys;
+  //使用 列 标签
   protected boolean useColumnLabel = true;
+  // 缓存 开启
   protected boolean cacheEnabled = true;
+  //
   protected boolean callSettersOnNulls;
   protected boolean useActualParamName = true;
   protected boolean returnInstanceForEmptyRow;
@@ -119,6 +126,7 @@ public class Configuration {
   protected boolean nullableOnForEach;
   protected boolean argNameBasedConstructorAutoMapping;
 
+  //日志 前缀
   protected String logPrefix;
   protected Class<? extends Log> logImpl;
   protected Class<? extends VFS> vfsImpl;
@@ -153,7 +161,10 @@ public class Configuration {
   protected final MapperRegistry mapperRegistry = new MapperRegistry(this);
   protected final InterceptorChain interceptorChain = new InterceptorChain();
   protected final TypeHandlerRegistry typeHandlerRegistry = new TypeHandlerRegistry(this);
+
+  // 类型别名 注册器 hash
   protected final TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
+  // 语言 注册器 hash
   protected final LanguageDriverRegistry languageRegistry = new LanguageDriverRegistry();
 
   protected final Map<String, MappedStatement> mappedStatements = new StrictMap<MappedStatement>(
@@ -172,12 +183,15 @@ public class Configuration {
   protected final Collection<ResultMapResolver> incompleteResultMaps = new LinkedList<>();
   protected final Collection<MethodResolver> incompleteMethods = new LinkedList<>();
 
+  // 可重入锁, 同一线程 无需再次获取锁
   private final ReentrantLock incompleteResultMapsLock = new ReentrantLock();
   private final ReentrantLock incompleteCacheRefsLock = new ReentrantLock();
   private final ReentrantLock incompleteStatementsLock = new ReentrantLock();
   private final ReentrantLock incompleteMethodsLock = new ReentrantLock();
 
   /*
+   * 缓存 映射
+   *
    * A map holds cache-ref relationship. The key is the namespace that references a cache bound to another namespace and
    * the value is the namespace which the actual cache is bound to.
    */
@@ -245,6 +259,7 @@ public class Configuration {
     return this.vfsImpl;
   }
 
+  //添加vfs实现
   public void setVfsImpl(Class<? extends VFS> vfsImpl) {
     if (vfsImpl != null) {
       this.vfsImpl = vfsImpl;

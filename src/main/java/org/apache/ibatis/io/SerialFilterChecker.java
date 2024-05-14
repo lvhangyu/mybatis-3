@@ -20,6 +20,7 @@ import java.security.Security;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 
+//串行 过滤 监测
 public final class SerialFilterChecker {
   private static final Log log = LogFactory.getLog(SerialFilterChecker.class);
   /* Property key for the JEP-290 serialization filters */

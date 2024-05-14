@@ -21,6 +21,8 @@ import java.util.List;
 import org.apache.ibatis.mapping.MappedStatement;
 
 /**
+ *  批量结果
+ *
  * @author Jeff Butler
  */
 public class BatchResult {

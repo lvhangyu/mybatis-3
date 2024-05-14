@@ -69,6 +69,8 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.apache.ibatis.util.MapUtil;
 
 /**
+ *  默认结果集 处理者
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Iwao AVE!

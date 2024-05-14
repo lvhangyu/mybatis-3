@@ -26,6 +26,7 @@ import java.nio.charset.Charset;
 import java.util.Properties;
 
 /**
+ *  来源, 简化类加载器对资源的访问
  * A class to simplify access to resources through the classloader.
  *
  * @author Clinton Begin
@@ -35,6 +36,8 @@ public class Resources {
   private static final ClassLoaderWrapper classLoaderWrapper = new ClassLoaderWrapper();
 
   /**
+   * 使用的字符集
+   *
    * Charset to use when calling getResourceAsReader. null means use the system default.
    */
   private static Charset charset;
@@ -43,6 +46,8 @@ public class Resources {
   }
 
   /**
+   * 返回默认的类加载qi
+   *
    * Returns the default classloader (may be null).
    *
    * @return The default classloader
@@ -62,6 +67,7 @@ public class Resources {
   }
 
   /**
+   *  返回资源url
    * Returns the URL of the resource on the classpath
    *
    * @param resource
@@ -99,6 +105,7 @@ public class Resources {
   }
 
   /**
+   *  返回资源stream
    * Returns a resource on the classpath as a Stream object
    *
    * @param resource
@@ -114,6 +121,7 @@ public class Resources {
   }
 
   /**
+   *  返回资源流
    * Returns a resource on the classpath as a Stream object
    *
    * @param loader
@@ -135,6 +143,7 @@ public class Resources {
   }
 
   /**
+   *  返回资源属性
    * Returns a resource on the classpath as a Properties object
    *
    * @param resource

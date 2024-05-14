@@ -16,6 +16,7 @@
 package org.apache.ibatis.jdbc;
 
 /**
+ * sql运行异常
  * @author Clinton Begin
  */
 public class RuntimeSqlException extends RuntimeException {

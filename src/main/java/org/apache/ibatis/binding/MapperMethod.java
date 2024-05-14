@@ -39,6 +39,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ *  方法映射
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Lasse Voss
@@ -49,6 +51,7 @@ public class MapperMethod {
   private final SqlCommand command;
   private final MethodSignature method;
 
+  //创建
   public MapperMethod(Class<?> mapperInterface, Method method, Configuration config) {
     this.command = new SqlCommand(config, mapperInterface, method);
     this.method = new MethodSignature(config, mapperInterface, method);
@@ -200,6 +203,7 @@ public class MapperMethod {
     return result;
   }
 
+  //方法参数 key value
   public static class ParamMap<V> extends HashMap<String, V> {
 
     private static final long serialVersionUID = -2212268410512043556L;
@@ -214,9 +218,12 @@ public class MapperMethod {
 
   }
 
+  // sql 命令
   public static class SqlCommand {
 
     private final String name;
+
+    // 增删改查 刷新
     private final SqlCommandType type;
 
     public SqlCommand(Configuration configuration, Class<?> mapperInterface, Method method) {
@@ -247,6 +254,7 @@ public class MapperMethod {
       return type;
     }
 
+    //获取 映射方法
     private MappedStatement resolveMappedStatement(Class<?> mapperInterface, String methodName, Class<?> declaringClass,
         Configuration configuration) {
       String statementId = mapperInterface.getName() + "." + methodName;

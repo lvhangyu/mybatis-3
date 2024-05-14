@@ -33,13 +33,16 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ *  sql运行者
  * @author Clinton Begin
  */
 public class SqlRunner {
 
+  // key
   public static final int NO_GENERATED_KEY = Integer.MIN_VALUE + 1001;
 
   private final Connection connection;
+  // 类型处理者 注册
   private final TypeHandlerRegistry typeHandlerRegistry;
   private boolean useGeneratedKeySupport;
 
@@ -87,6 +90,7 @@ public class SqlRunner {
    *           If statement preparation or execution fails
    */
   public List<Map<String, Object>> selectAll(String sql, Object... args) throws SQLException {
+    //预处理 语句对象
     try (PreparedStatement ps = connection.prepareStatement(sql)) {
       setParameters(ps, args);
       try (ResultSet rs = ps.executeQuery()) {

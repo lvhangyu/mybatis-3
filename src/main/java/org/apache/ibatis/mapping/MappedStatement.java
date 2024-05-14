@@ -29,32 +29,34 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ *  映射语句
+ *
  * @author Clinton Begin
  */
 public final class MappedStatement {
 
-  private String resource;
-  private Configuration configuration;
-  private String id;
-  private Integer fetchSize;
+  private String resource;//来源
+  private Configuration configuration;//配置对象
+  private String id;//id
+  private Integer fetchSize;//
   private Integer timeout;
-  private StatementType statementType;
-  private ResultSetType resultSetType;
-  private SqlSource sqlSource;
-  private Cache cache;
-  private ParameterMap parameterMap;
-  private List<ResultMap> resultMaps;
-  private boolean flushCacheRequired;
-  private boolean useCache;
-  private boolean resultOrdered;
-  private SqlCommandType sqlCommandType;
+  private StatementType statementType;//语句类型
+  private ResultSetType resultSetType;//结果集类型
+  private SqlSource sqlSource;//sqlSource
+  private Cache cache;//缓存
+  private ParameterMap parameterMap;//参数map
+  private List<ResultMap> resultMaps;//结果maps
+  private boolean flushCacheRequired;//是否必须刷新缓存
+  private boolean useCache;//是否使用缓存
+  private boolean resultOrdered;//结果排序
+  private SqlCommandType sqlCommandType;//sql命令类型
   private KeyGenerator keyGenerator;
   private String[] keyProperties;
   private String[] keyColumns;
-  private boolean hasNestedResultMaps;
-  private String databaseId;
-  private Log statementLog;
-  private LanguageDriver lang;
+  private boolean hasNestedResultMaps;//是否有嵌套结果map
+  private String databaseId;//库id
+  private Log statementLog;//语句日志
+  private LanguageDriver lang;//语言驱动接口
   private String[] resultSets;
   private boolean dirtySelect;
 

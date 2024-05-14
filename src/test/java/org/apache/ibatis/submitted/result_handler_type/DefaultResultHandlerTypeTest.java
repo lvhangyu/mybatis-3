@@ -56,6 +56,7 @@ class DefaultResultHandlerTypeTest {
 
   @Test
   void testSelectMapAnnotation() throws Exception {
+
     String xmlConfig = "org/apache/ibatis/submitted/result_handler_type/MapperConfig.xml";
     SqlSessionFactory sqlSessionFactory = getSqlSessionFactoryXmlConfig(xmlConfig);
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {

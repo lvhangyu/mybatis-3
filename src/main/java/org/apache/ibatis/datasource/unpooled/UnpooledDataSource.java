@@ -34,6 +34,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.util.MapUtil;
 
 /**
+ *  无连接池 datasource
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  */

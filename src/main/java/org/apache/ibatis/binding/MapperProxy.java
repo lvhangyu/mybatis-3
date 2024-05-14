@@ -31,6 +31,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.util.MapUtil;
 
 /**
+ *  mapper代理对象
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  */
@@ -89,6 +91,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     }
   }
 
+  //mapper 方法调用
   private MapperMethodInvoker cachedInvoker(Method method) throws Throwable {
     try {
       return MapUtil.computeIfAbsent(methodCache, method, m -> {

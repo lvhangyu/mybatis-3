@@ -19,6 +19,8 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
+ *  类加载 包装类
+ *
  * A class to wrap access to multiple class loaders making them work as one
  *
  * @author Clinton Begin

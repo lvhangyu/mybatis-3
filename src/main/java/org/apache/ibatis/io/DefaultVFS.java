@@ -38,6 +38,8 @@ import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 
 /**
+ *  默认vfs
+ *
  * A default implementation of {@link VFS} that works for most application servers.
  *
  * @author Ben Gunter

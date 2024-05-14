@@ -21,6 +21,7 @@ import java.util.List;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ *  参数map
  * @author Clinton Begin
  */
 public class ParameterMap {

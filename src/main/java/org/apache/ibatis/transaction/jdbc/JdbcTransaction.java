@@ -27,6 +27,8 @@ import org.apache.ibatis.transaction.Transaction;
 import org.apache.ibatis.transaction.TransactionException;
 
 /**
+ *  jdbc事务
+ *
  * {@link Transaction} that makes use of the JDBC commit and rollback facilities directly. It relies on the connection
  * retrieved from the dataSource to manage the scope of the transaction. Delays connection retrieval until
  * getConnection() is called. Ignores commit or rollback requests when autocommit is on.
@@ -41,8 +43,11 @@ public class JdbcTransaction implements Transaction {
 
   protected Connection connection;
   protected DataSource dataSource;
+  //事务隔离级别
   protected TransactionIsolationLevel level;
   protected boolean autoCommit;
+
+  //在关闭时设置自动提交
   protected boolean skipSetAutoCommitOnClose;
 
   public JdbcTransaction(DataSource ds, TransactionIsolationLevel desiredLevel, boolean desiredAutoCommit) {

@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 池
+ *
  * @author Clinton Begin
  */
 public class PoolState {

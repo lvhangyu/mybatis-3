@@ -24,6 +24,8 @@ import org.apache.ibatis.reflection.property.PropertyTokenizer;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ *  边界sql
+ *
  * An actual SQL String got from an {@link SqlSource} after having processed any dynamic content. The SQL may have SQL
  * placeholders "?" and a list (ordered) of a parameter mappings with the additional information for each parameter (at
  * least the property name of the input object to read the value from).
@@ -38,7 +40,7 @@ public class BoundSql {
   private final List<ParameterMapping> parameterMappings;
   private final Object parameterObject;
   private final Map<String, Object> additionalParameters;
-  private final MetaObject metaParameters;
+  private final MetaObject metaParameters;//元数据对象
 
   public BoundSql(Configuration configuration, String sql, List<ParameterMapping> parameterMappings,
       Object parameterObject) {

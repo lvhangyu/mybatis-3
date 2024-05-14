@@ -24,6 +24,8 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 /**
+ * 上层sql 定义
+ *
  * @author Clinton Begin
  * @author Jeff Butler
  * @author Adam Gent
@@ -34,6 +36,7 @@ public abstract class AbstractSQL<T> {
   private static final String AND = ") \nAND (";
   private static final String OR = ") \nOR (";
 
+  //sql语句对象
   private final SQLStatement sql = new SQLStatement();
 
   public abstract T getSelf();
@@ -523,6 +526,7 @@ public abstract class AbstractSQL<T> {
     return sql;
   }
 
+  //传入一个appender对象, 返回拼接好的sql字符串
   public <A extends Appendable> A usingAppender(A a) {
     sql().sql(a);
     return a;
@@ -626,6 +630,7 @@ public abstract class AbstractSQL<T> {
 
   }
 
+  //sql语句对象, 包含一些关键字
   private static class SQLStatement {
 
     public enum StatementType {
@@ -640,6 +645,7 @@ public abstract class AbstractSQL<T> {
 
     }
 
+    //限制行 策略 (枚举, 3个类型)
     private enum LimitingRowsStrategy {
       NOP {
         @Override
@@ -700,6 +706,7 @@ public abstract class AbstractSQL<T> {
       valuesList.add(new ArrayList<>());
     }
 
+    //sql子句拼接
     private void sqlClause(SafeAppendable builder, String keyword, List<String> parts, String open, String close,
         String conjunction) {
       if (!parts.isEmpty()) {
@@ -722,6 +729,7 @@ public abstract class AbstractSQL<T> {
       }
     }
 
+    //查询sql语句拼接
     private String selectSQL(SafeAppendable builder) {
       if (distinct) {
         sqlClause(builder, "SELECT DISTINCT", select, "", "", ", ");

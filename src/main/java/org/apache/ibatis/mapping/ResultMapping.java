@@ -26,24 +26,26 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ *  结果映射
+ *
  * @author Clinton Begin
  */
 public class ResultMapping {
 
   private Configuration configuration;
-  private String property;
-  private String column;
-  private Class<?> javaType;
-  private JdbcType jdbcType;
-  private TypeHandler<?> typeHandler;
-  private String nestedResultMapId;
+  private String property;//属性
+  private String column;//列
+  private Class<?> javaType;//java类型
+  private JdbcType jdbcType;//jdbc类型
+  private TypeHandler<?> typeHandler;//类型处理者
+  private String nestedResultMapId;//
   private String nestedQueryId;
-  private Set<String> notNullColumns;
-  private String columnPrefix;
-  private List<ResultFlag> flags;
-  private List<ResultMapping> composites;
-  private String resultSet;
-  private String foreignColumn;
+  private Set<String> notNullColumns;//不为空列
+  private String columnPrefix;//列前缀
+  private List<ResultFlag> flags;//结果flag
+  private List<ResultMapping> composites;//结果映射列表
+  private String resultSet;//结果集
+  private String foreignColumn;//外键列
   private boolean lazy;
 
   ResultMapping() {

@@ -38,6 +38,7 @@ import org.apache.ibatis.type.TimeOnlyTypeHandler;
 import org.apache.ibatis.type.TypeHandler;
 
 /**
+ *  字段 类型定义
  * @author Clinton Begin
  * @author Adam Gent
  */

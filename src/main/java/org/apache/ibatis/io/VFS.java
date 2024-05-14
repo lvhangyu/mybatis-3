@@ -28,6 +28,8 @@ import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 
 /**
+ *  vfs 提供一个非常简单的 API，用于访问应用程序服务器中的资源。
+ *
  * Provides a very simple API for accessing resources within an application server.
  *
  * @author Ben Gunter
@@ -36,10 +38,12 @@ public abstract class VFS {
   private static final Log log = LogFactory.getLog(VFS.class);
 
   /** The built-in implementations. */
+  //vfs实现
   public static final Class<?>[] IMPLEMENTATIONS = { JBoss6VFS.class, DefaultVFS.class };
 
   /**
    * The list to which implementations are added by {@link #addImplClass(Class)}.
+   *  vfs list
    */
   public static final List<Class<? extends VFS>> USER_IMPLEMENTATIONS = new ArrayList<>();
 
@@ -124,6 +128,8 @@ public abstract class VFS {
   }
 
   /**
+   *  获取方法实例
+   *
    * Get a method by name and parameter types. If the method is not found then return null.
    *
    * @param clazz
@@ -151,6 +157,8 @@ public abstract class VFS {
   }
 
   /**
+   *
+   *  调用方法
    * Invoke a method on an object and return whatever it returns.
    *
    * @param <T>

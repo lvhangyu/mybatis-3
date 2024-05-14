@@ -26,6 +26,8 @@ import java.lang.reflect.WildcardType;
 import java.util.Arrays;
 
 /**
+ *  类型参数解析
+ *
  * @author Iwao AVE!
  */
 public class TypeParameterResolver {
@@ -48,6 +50,7 @@ public class TypeParameterResolver {
   }
 
   /**
+   *  解析返回类型
    * Resolve return type.
    *
    * @param method

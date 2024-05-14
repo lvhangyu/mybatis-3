@@ -42,6 +42,8 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
 /**
+ *  结果加载map
+ *
  * @author Clinton Begin
  * @author Franta Mejta
  */

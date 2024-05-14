@@ -25,6 +25,8 @@ import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 
 /**
+ *  解析工具
+ *
  * <p>
  * ResolverUtil is used to locate classes that are available in the/a class path and meet arbitrary conditions. The two
  * most common conditions are that a class implements/extends another class, or that is it annotated with a specific
@@ -86,6 +88,7 @@ public class ResolverUtil<T> {
    */
   public static class IsA implements Test {
 
+    //父级
     /** The parent. */
     private final Class<?> parent;
 
@@ -143,6 +146,7 @@ public class ResolverUtil<T> {
   }
 
   /** The set of matches being accumulated. */
+  //累计的
   private Set<Class<? extends T>> matches = new HashSet<>();
 
   /**

@@ -24,6 +24,8 @@ import org.apache.ibatis.cursor.Cursor;
 import org.apache.ibatis.executor.BatchResult;
 
 /**
+ *  sql会话接口, 支持基本的sql操作
+ *
  * The primary Java interface for working with MyBatis. Through this interface you can execute commands, get mappers and
  * manage transactions.
  *
@@ -117,6 +119,8 @@ public interface SqlSession extends Closeable {
   <K, V> Map<K, V> selectMap(String statement, String mapKey);
 
   /**
+   *  将结构 映射到 map 上
+   *
    * The selectMap is a special case in that it is designed to convert a list of results into a Map based on one of the
    * properties in the resulting objects.
    *

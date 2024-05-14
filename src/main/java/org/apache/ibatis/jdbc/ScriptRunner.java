@@ -28,6 +28,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ *  脚本运行者
+ *
  * This is an internal testing utility.<br>
  * You are welcome to use this class for your own purposes,<br>
  * but if there is some feature/enhancement you need for your own usage,<br>
@@ -37,6 +39,7 @@ import java.util.regex.Pattern;
  */
 public class ScriptRunner {
 
+  //系统 行分隔符
   private static final String LINE_SEPARATOR = System.lineSeparator();
 
   private static final String DEFAULT_DELIMITER = ";";
@@ -44,12 +47,17 @@ public class ScriptRunner {
   private static final Pattern DELIMITER_PATTERN = Pattern
       .compile("^\\s*((--)|(//))?\\s*(//)?\\s*@DELIMITER\\s+([^\\s]+)", Pattern.CASE_INSENSITIVE);
 
+  //sql连接对象
   private final Connection connection;
 
   private boolean stopOnError;
   private boolean throwWarning;
+
+  //是否自动提交
   private boolean autoCommit;
+  //是否发送 一行 sql
   private boolean sendFullScript;
+  //是否删除换行
   private boolean removeCRs;
   private boolean escapeProcessing = true;
 
@@ -240,6 +248,7 @@ public class ScriptRunner {
   }
 
   private void executeStatement(String command) throws SQLException {
+    //获取语句对象
     try (Statement statement = connection.createStatement()) {
       statement.setEscapeProcessing(escapeProcessing);
       String sql = command;
@@ -247,6 +256,7 @@ public class ScriptRunner {
         sql = sql.replace("\r\n", "\n");
       }
       try {
+        //执行sql字符串
         boolean hasResults = statement.execute(sql);
         // DO NOT try to 'improve' the condition even if IDE tells you to!
         // It's important that getUpdateCount() is called here.

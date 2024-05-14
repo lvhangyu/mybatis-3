@@ -28,42 +28,56 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.transaction.Transaction;
 
 /**
+ *  执行者 增删改查
  * @author Clinton Begin
  */
 public interface Executor {
 
   ResultHandler NO_RESULT_HANDLER = null;
 
+  //更新操作
   int update(MappedStatement ms, Object parameter) throws SQLException;
 
+  //查询操作
   <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler,
       CacheKey cacheKey, BoundSql boundSql) throws SQLException;
 
+  //查询操作
   <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler)
       throws SQLException;
 
+  //获取游标
   <E> Cursor<E> queryCursor(MappedStatement ms, Object parameter, RowBounds rowBounds) throws SQLException;
 
+  //刷新语句
   List<BatchResult> flushStatements() throws SQLException;
 
+  //提交
   void commit(boolean required) throws SQLException;
 
+  //回滚
   void rollback(boolean required) throws SQLException;
 
+  //创建缓存key
   CacheKey createCacheKey(MappedStatement ms, Object parameterObject, RowBounds rowBounds, BoundSql boundSql);
 
+  //判断key 是否用了缓存
   boolean isCached(MappedStatement ms, CacheKey key);
 
+  //清楚本地缓存
   void clearLocalCache();
 
+  //延迟加载
   void deferLoad(MappedStatement ms, MetaObject resultObject, String property, CacheKey key, Class<?> targetType);
 
+  //获取事务
   Transaction getTransaction();
 
   void close(boolean forceRollback);
 
   boolean isClosed();
 
+  //设置执行者 包装对象
   void setExecutorWrapper(Executor executor);
 
 }
